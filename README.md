@@ -5,7 +5,7 @@ Your only need to open [https://mercampo-client.netlify.app](https://mercampo-cl
 
 To install the project dependencies please run:
 
-### `npm run dev`
+### `npm install`
 
 To create a successfully MongoDB connection please create a .env file making a copy of the .env.sample file available in the root folder and add your MongoDB credentials.<br />
 
