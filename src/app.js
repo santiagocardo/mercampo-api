@@ -28,6 +28,11 @@ mongoose
     process.exit(1)
   })
 
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
+
 app.use(pino())
 app.use(express.json())
 app.use(compression())
