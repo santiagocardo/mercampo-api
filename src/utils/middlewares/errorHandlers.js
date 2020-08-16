@@ -2,7 +2,7 @@
 
 const boom = require('@hapi/boom')
 
-const config = require('../../../config')
+const { enviroment } = require('../../../config')
 
 const notFoundHandler = (_req, res) => {
   const {
@@ -13,7 +13,7 @@ const notFoundHandler = (_req, res) => {
 }
 
 const withErrorStack = (error, stack) =>
-  (config.enviroment !== 'production')
+  (enviroment !== 'production')
     ? { error, stack }
     : error
 
