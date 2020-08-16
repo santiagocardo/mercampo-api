@@ -10,7 +10,9 @@ const { cartProductIdSchema, addProductSchema } = require('../../utils/schemas/c
 const router = Router()
 
 router.get('/', catchErrors(controller.find))
+
 router.post('/add', schemaValidator(addProductSchema), catchErrors(controller.add))
+
 router.delete('/:id', schemaValidator(cartProductIdSchema, 'params'), catchErrors(controller.remove))
 
 module.exports = router

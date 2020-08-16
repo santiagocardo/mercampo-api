@@ -5,6 +5,7 @@ const compression = require('compression')
 const helmet = require('helmet')
 const pino = require('pino-http')
 const mongoose = require('mongoose')
+const logger = require('pino')()
 
 const {
   notFoundHandler,
@@ -16,14 +17,16 @@ const { dbUser, dbPassword, dbName } = require('../config')
 const api = require('./api')
 
 const app = express()
-const logger = require('pino')()
 
 mongoose
   .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0-0rr3j.mongodb.net/${dbName}?w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  .catch(err => logger.error(err))
+  .catch(err => {
+    logger.error(err)
+    process.exit(1)
+  })
 
 app.use(pino())
 app.use(express.json())

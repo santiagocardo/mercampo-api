@@ -18,14 +18,14 @@ const productSchema = new mongoose.Schema({
   lastPrice: Number,
   description: String,
   category: {
-    type: String,
-    required: true
-  },
-  productType: {
-    enum: ['frutas', 'verduras', 'organicos']
+    enum: ['fruits', 'vegetables', 'organics']
   },
   quantityType: {
-    enum: ['Und', 'Gr', 'Kl']
+    enum: ['Unt', 'Gr', 'Kl']
+  },
+  defaultQuantity: {
+    type: Number,
+    default: 1
   }
 })
 

@@ -10,7 +10,7 @@ const find = async (_req, res) => Cart
 
 const add = async (req, res) => Cart
   .findOneAndUpdate(
-    { 'product._id': req.body.productId },
+    { 'product._id': req.body.id },
     {
       $inc: { quantity: +req.body.quantity }
     },

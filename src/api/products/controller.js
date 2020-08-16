@@ -11,7 +11,7 @@ const findOne = async (req, res) => Products
   .then(product => res.json(product))
 
 const search = async (req, res) => Products
-  .find({ name: { $regex: `^${req.query.name}`, $options: 'i' } }).exec()
+  .find({ name: { $regex: `.*${req.query.name}*`, $options: 'i' } }).exec()
   .then(products => res.json(products))
 
 module.exports = {
