@@ -28,15 +28,20 @@ mongoose
     process.exit(1)
   })
 
-app.use((_req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  next()
-})
-
 app.use(pino())
 app.use(express.json())
 app.use(compression())
 app.use(helmet())
+
+app.use((_req, res, next) => {
+  res.header({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Z-Key',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
+  })
+  next()
+})
 
 app.use('/api/v1', api)
 
