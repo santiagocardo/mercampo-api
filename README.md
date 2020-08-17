@@ -1,5 +1,5 @@
 ## Project Demo
-Your only need to open [https://mercampo-client.netlify.app](https://mercampo-client.netlify.app) to start exploring the project which is already deployed.
+Your only need to open [https://mercampo-client.vercel.app](https://mercampo-client.vercel.app) to start exploring the project which is already deployed.
 
 ## Project SetUp
 
